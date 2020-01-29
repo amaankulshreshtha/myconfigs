@@ -10,6 +10,7 @@ export DENO_PATH="$DENO_INSTALL/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export YARN_PATH="$HOME/.yarn/bin"
 
 
 # CUSTOM JAVSCRIPT PROMPT
@@ -94,4 +95,4 @@ alias cin='code-insiders'
 
 source $ZSH/oh-my-zsh.sh
 eval "$(rbenv init -)"
-export PATH="/usr/local/sbin:$DENO_PATH:$PATH"
+export PATH="/usr/local/sbin:$DENO_PATH:$YARN_PATH:$PATH"
