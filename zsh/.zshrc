@@ -1,11 +1,10 @@
 # PATHS 
 ########################################
 
-export USER="/Users/amaan.kulshreshtha"
-export ZSH="$USER/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="$ZSH/custom/themes"
 export ZSH_PLUGINS=$ZSH/custom/plugins
-export DENO_INSTALL="$USER/.local"
+export DENO_INSTALL="$HOME/.local"
 export DENO_PATH="$DENO_INSTALL/bin"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
