@@ -74,6 +74,10 @@ mkcd() {
   cd -P -- "$1"
 }
 
+nvmi() {
+	nvm install "$1" --reinstall-packages-from=node --latest-npm
+}
+
 # THEME ENGINE
 ########################################
 
