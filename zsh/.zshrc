@@ -78,6 +78,10 @@ nvmi() {
 	nvm install "$1" --reinstall-packages-from=node --latest-npm
 }
 
+ytdl() {
+  youtube-dl -x --audio-format 'mp3' --embed-thumbnail "$1"
+}
+
 # THEME ENGINE
 ########################################
 
