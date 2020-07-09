@@ -96,6 +96,7 @@ alias ls='colorls -1'
 alias lc='colorls -lA --sd'
 alias cls='clear'
 alias cin='code-insiders'
+alias ip='ifconfig | grep "inet 1"'
 
 # EXECUTIONS
 ########################################
