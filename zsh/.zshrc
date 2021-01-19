@@ -10,7 +10,15 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export YARN_PATH="$HOME/.yarn/bin"
-
+export PHP_PATH="/usr/local/Cellar/php@7.3/7.3.21/bin"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home"
+export M2_HOME="/opt/apache-maven-3.6.3/bin"
+export IDEA_PATH="/opt/idea/bin"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_EMULATOR=$ANDROID_HOME/emulator
+export ANDROID_TOOLS=$ANDROID_HOME/tools
+export ANDROID_BIN=$ANDROID_HOME/tools/bin
+export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools
 
 # CUSTOM JAVSCRIPT PROMPT
 ########################################
@@ -82,6 +90,14 @@ ytdl() {
   youtube-dl -x --audio-format 'mp3' --embed-thumbnail "$1"
 }
 
+mirror-android-screen() {
+  scrcpy -m 1024
+}
+
+record-android-screen() {
+  scrcpy -r "$1"
+}
+
 # THEME ENGINE
 ########################################
 
@@ -97,10 +113,13 @@ alias lc='colorls -lA --sd'
 alias cls='clear'
 alias cin='code-insiders'
 alias ip='ifconfig | grep "inet 1"'
+alias log='git log --color --oneline | emojify | less -r'
+alias mas='mirror-android-screen'
+alias ras='record-android-screen'
 
 # EXECUTIONS
 ########################################
 
 source $ZSH/oh-my-zsh.sh
 eval "$(rbenv init -)"
-export PATH="/usr/local/sbin:$DENO_PATH:$YARN_PATH:$PATH"
+export PATH="/usr/local/sbin:$IDEA_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$YARN_PATH:$PHP_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$PATH"
