@@ -98,6 +98,10 @@ record-android-screen() {
   scrcpy -r "$1"
 }
 
+restart-sound() {
+  sudo launchctl stop com.apple.audio.coreaudiod && sudo launchctl start com.apple.audio.coreaudiod
+}
+
 # THEME ENGINE
 ########################################
 
@@ -116,6 +120,8 @@ alias ip='ifconfig | grep "inet 1"'
 alias log='git log --color --oneline | emojify | less -r'
 alias mas='mirror-android-screen'
 alias ras='record-android-screen'
+alias ez='code ~/.zshrc'
+alias sz='source ~/.zshrc'
 
 # EXECUTIONS
 ########################################
