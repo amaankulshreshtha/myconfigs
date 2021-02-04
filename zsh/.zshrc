@@ -10,7 +10,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export YARN_PATH="$HOME/.yarn/bin"
-export PHP_PATH="/usr/local/Cellar/php@7.3/7.3.21/bin"
+export MAMP_PHP73="/Applications/MAMP/bin/php/php7.3.24/bin"
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home"
 export M2_HOME="/opt/apache-maven-3.6.3/bin"
 export IDEA_PATH="/opt/idea/bin"
@@ -102,6 +102,11 @@ restart-sound() {
   sudo launchctl stop com.apple.audio.coreaudiod && sudo launchctl start com.apple.audio.coreaudiod
 }
 
+timezsh() {
+  shell=${1-$SHELL}
+  for i in $(seq 1 10); do /usr/bin/time $shell -i -c exit; done
+}
+
 # THEME ENGINE
 ########################################
 
@@ -115,6 +120,7 @@ ZSH_THEME="Powerlevel9k/powerlevel9k"
 alias ls='colorls -1'
 alias lc='colorls -lA --sd'
 alias cls='clear'
+alias c='code'
 alias cin='code-insiders'
 alias ip='ifconfig | grep "inet 1"'
 alias log='git log --color --oneline | emojify | less -r'
@@ -122,10 +128,11 @@ alias mas='mirror-android-screen'
 alias ras='record-android-screen'
 alias ez='code ~/.zshrc'
 alias sz='source ~/.zshrc'
+alias mage='php bin/magento'
 
 # EXECUTIONS
 ########################################
 
 source $ZSH/oh-my-zsh.sh
 eval "$(rbenv init -)"
-export PATH="/usr/local/sbin:$IDEA_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$YARN_PATH:$PHP_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$PATH"
+export PATH="/usr/local/sbin:$IDEA_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$YARN_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$PATH"
