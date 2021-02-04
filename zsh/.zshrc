@@ -127,7 +127,7 @@ alias log='git log --color --oneline | emojify | less -r'
 alias mas='mirror-android-screen'
 alias ras='record-android-screen'
 alias ez='code ~/.zshrc'
-alias sz='source ~/.zshrc'
+alias execz='exec zsh'
 alias mage='php bin/magento'
 
 # EXECUTIONS
