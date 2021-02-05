@@ -1,11 +1,26 @@
-zmodload zsh/zprof
+# PROFILERS
+# zmodload zsh/zprof
+# timezsh() {
+#   time zsh -i -c exit
+# }
+
+# TEST SHELL INTEGRATION
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+
+# CONFIGURING STATUS BAR
+function iterm2_print_user_vars() {
+  iterm2_set_user_var phpVersion $(php -v | awk '/^PHP/ { print $2 }')
+  # if -f iterm2_set_user_var nodeVersion $(node -v)
+  # iterm2_set_user_var rubyVersion $(ruby -v | awk '{ print $2 }')
+}
 
 # PATHS 
 ########################################
 
 export ZSH="$HOME/.oh-my-zsh"
 export ZSH_THEME="$ZSH/custom/themes"
-export ZSH_PLUGINS=$ZSH/custom/plugins
+export ZSH_PLUGINS="$ZSH/custom/plugins"
 export DENO_INSTALL="$HOME/.local"
 export DENO_PATH="$DENO_INSTALL/bin"
 export YARN_PATH="$HOME/.yarn/bin"
@@ -23,26 +38,26 @@ export RBENV_PATH="$HOME/.rbenv/bin"
 # CUSTOM JAVSCRIPT PROMPT
 ########################################
 
-POWERLEVEL9K_CUSTOM_JAVASCRIPT="echo -n '\ue781' JavaScript"
-POWERLEVEL9K_CUSTOM_JAVASCRIPT_FOREGROUND="black"
-POWERLEVEL9K_CUSTOM_JAVASCRIPT_BACKGROUND="yellow"
+# POWERLEVEL9K_CUSTOM_JAVASCRIPT="echo -n '\ue781' JavaScript"
+# POWERLEVEL9K_CUSTOM_JAVASCRIPT_FOREGROUND="black"
+# POWERLEVEL9K_CUSTOM_JAVASCRIPT_BACKGROUND="yellow"
 
-# CUSTOM EMOJI PROMPT
-#######################################
+# # CUSTOM EMOJI PROMPT
+# #######################################
 
-POWERLEVEL9K_CUSTOM_EMOJI="echo -n '\u2728'"
-POWERLEVEL9K_CUSTOM_EMOJI_BACKGROUND="transparent"
+# POWERLEVEL9K_CUSTOM_EMOJI="echo -n '\u2728'"
+# POWERLEVEL9K_CUSTOM_EMOJI_BACKGROUND="transparent"
 
 
-# PROMPT ELEMENTS
-#######################################
+# # PROMPT ELEMENTS
+# #######################################
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs custom_emoji)
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-POWERLEVEL9K_DISABLE_RPROMPT=true
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$ "
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(ssh dir vcs custom_emoji)
+# POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_DISABLE_RPROMPT=true
+# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="$ "
 
 # PLUGINS
 ########################################
@@ -112,10 +127,6 @@ restart-sound() {
   sudo launchctl stop com.apple.audio.coreaudiod && sudo launchctl start com.apple.audio.coreaudiod
 }
 
-timezsh() {
-  time zsh -i -c exit
-}
-
 prettify-path() {
   tr ':' '\n' <<< "$PATH"
 }
@@ -131,10 +142,7 @@ check-rbenv-update() {
 
 # THEME ENGINE
 ########################################
-
-POWERLEVEL9K_MODE='nerdfont-complete'
-source $ZSH_THEME/Powerlevel9k/powerlevel9k.zsh-theme
-ZSH_THEME="Powerlevel9k/powerlevel9k"
+ZSH_THEME="emoji-arrow"
 
 # ALIAS
 ########################################
@@ -156,6 +164,10 @@ alias mage='php bin/magento'
 ########################################
 
 source $ZSH/oh-my-zsh.sh
+
+
 export PATH="/usr/local/sbin:$IDEA_PATH:$RBENV_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$YARN_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$PATH"
 _evalcache rbenv init -
 check-rbenv-update
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
