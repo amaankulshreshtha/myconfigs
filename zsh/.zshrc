@@ -41,10 +41,10 @@ antigen bundle git
 antigen bundle z
 antigen bundle common-aliases
 antigen bundle colored-man-pages
+antigen bundle rbenv
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle thefuck
 
 # THEME ENGINE
 ########################################
@@ -117,5 +117,10 @@ convMov2Gif() {
   ffmpeg -i "$1" -pix_fmt rgb8 -r 10 "$2" && gifsicle -O3 "$2" -o "$2"
 }
 
+force-open() {
+  xattr -d com.apple.quarantine "$1"
+}
+
 export PATH="/usr/local/sbin:$IDEA_PATH:$RBENV_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$NVM_DIR:$PATH"
 antigen apply
+nvm use lts/fermium
