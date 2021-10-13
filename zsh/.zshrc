@@ -58,7 +58,8 @@ alias cin='code-insiders'
 alias ip='ifconfig | grep "inet 1"'
 alias mas='mirror-android-screen'
 alias ras='record-android-screen'
-alias ez='code ~/.zshrc'
+alias eg='c ~/.gitconfig'
+alias ez='c ~/.zshrc'
 alias sz='source ~/.zshrc'
 alias mage='php bin/magento'
 alias print-path='print -l $path'
@@ -119,6 +120,25 @@ convMov2Gif() {
 
 force-open() {
   xattr -d com.apple.quarantine "$1"
+}
+
+# switch between release and beta xcodes
+function xcswitch() {
+    RELEASE="Xcode.app"
+    BETA="Xcode-beta.app"
+
+    CURRENT=$(xcode-select -p)
+    NEXT=""
+
+    if [[ "$CURRENT" =~ "$RELEASE" ]]
+    then
+        NEXT="$BETA"
+    else
+        NEXT="$RELEASE"
+    fi
+
+    sudo xcode-select -s "/Applications/$NEXT"
+    echo "Switched to $NEXT"
 }
 
 export PATH="/usr/local/sbin:$IDEA_PATH:$RBENV_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$NVM_DIR:$PATH"
