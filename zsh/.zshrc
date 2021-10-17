@@ -43,8 +43,6 @@ antigen bundle common-aliases
 antigen bundle colored-man-pages
 antigen bundle rbenv
 antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-autosuggestions
 
 # THEME ENGINE
 ########################################
