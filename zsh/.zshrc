@@ -1,3 +1,8 @@
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # PROFILERS
 # zmodload zsh/zprof
 timezsh() {
@@ -19,24 +24,23 @@ export ANDROID_TOOLS="$ANDROID_HOME/tools"
 export ANDROID_BIN="$ANDROID_HOME/tools/bin"
 export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
 export RBENV_PATH="$HOME/.rbenv/bin"
+export CMAKE_PATH="/Applications/CMake.app/Contents/bin"
 
 # FLAGS
 #######################################
+export HOMEBREW_NO_ANALYTICS=1
 # for lukechilds/zsh-nvm
-export NVM_LAZY_LOAD=true
-export NVM_NO_USE=true
-# for oh-my-zsh/nvm
-export NVM_LAZY=1
+# export NVM_LAZY_LOAD=true
 
 # ANTIGEN
 #######################################
-source /usr/local/share/antigen/antigen.zsh
+# source /usr/local/share/antigen/antigen.zsh
+source $HOME/antigen.zsh
 antigen use oh-my-zsh
 
 # PLUGINS
 ########################################
 antigen bundle lukechilds/zsh-nvm
-antigen bundle nvm
 antigen bundle git
 antigen bundle z
 antigen bundle common-aliases
@@ -139,6 +143,11 @@ function xcswitch() {
     echo "Switched to $NEXT"
 }
 
-export PATH="/usr/local/sbin:$IDEA_PATH:$RBENV_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$NVM_DIR:$PATH"
+export PATH="/usr/local/sbin:$IDEA_PATH:$RBENV_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$NVM_DIR:$CMAKE_PATH:$PATH"
 antigen apply
-nvm use lts/fermium
+# nvm use lts/fermium
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
