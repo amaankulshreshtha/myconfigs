@@ -51,6 +51,7 @@ antigen bundle z
 antigen bundle common-aliases
 antigen bundle colored-man-pages
 antigen bundle rbenv
+antigen bundle zsh-interactive-cd
 antigen bundle laggardkernel/zsh-thefuck
 antigen bundle zsh-users/zsh-syntax-highlighting
 
