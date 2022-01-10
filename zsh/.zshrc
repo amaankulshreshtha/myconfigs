@@ -47,11 +47,11 @@ antigen use oh-my-zsh
 ########################################
 antigen bundle lukechilds/zsh-nvm
 antigen bundle git
-antigen bundle thefuck
 antigen bundle z
 antigen bundle common-aliases
 antigen bundle colored-man-pages
 antigen bundle rbenv
+antigen bundle laggardkernel/zsh-thefuck
 antigen bundle zsh-users/zsh-syntax-highlighting
 
 # THEME ENGINE
