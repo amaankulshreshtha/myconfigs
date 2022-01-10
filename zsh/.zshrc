@@ -1,8 +1,18 @@
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the start of this file.
+[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
+#### END FIG ENV VARIABLES ####
 # PROFILERS
 # zmodload zsh/zprof
 timezsh() {
   time zsh -i -c exit
 }
+
+# COLORS
+########################################
+PINK="\033[1;35m"
+CYAN="\033[0;36m"
+NC="\033[0m" # NO COLOR
 
 # PATHS 
 ########################################
@@ -23,10 +33,7 @@ export RBENV_PATH="$HOME/.rbenv/bin"
 # FLAGS
 #######################################
 # for lukechilds/zsh-nvm
-export NVM_LAZY_LOAD=true
-export NVM_NO_USE=true
-# for oh-my-zsh/nvm
-export NVM_LAZY=1
+# export NVM_LAZY_LOAD=true
 
 # ANTIGEN
 #######################################
@@ -36,8 +43,8 @@ antigen use oh-my-zsh
 # PLUGINS
 ########################################
 antigen bundle lukechilds/zsh-nvm
-antigen bundle nvm
 antigen bundle git
+antigen bundle thefuck
 antigen bundle z
 antigen bundle common-aliases
 antigen bundle colored-man-pages
@@ -61,6 +68,16 @@ alias ez='c ~/.zshrc'
 alias sz='source ~/.zshrc'
 alias mage='php bin/magento'
 alias print-path='print -l $path'
+alias gpl='git pl'
+alias gps='git ps'
+alias gz='git cz'
+alias ga='git add .'
+alias gst='git st'
+alias gstash='git stash'
+alias gd='git diff'
+alias gl='git lg --oneline'
+alias gco='git co'
+
 
 # CUSTOM FUNCTIONS
 ########################################
@@ -121,7 +138,7 @@ force-open() {
 }
 
 # switch between release and beta xcodes
-function xcswitch() {
+xcswitch() {
     RELEASE="Xcode.app"
     BETA="Xcode-beta.app"
 
@@ -141,4 +158,10 @@ function xcswitch() {
 
 export PATH="/usr/local/sbin:$IDEA_PATH:$RBENV_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$NVM_DIR:$PATH"
 antigen apply
-nvm use lts/fermium
+
+#### FIG ENV VARIABLES ####
+# Please make sure this block is at the end of this file.
+[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
+#### END FIG ENV VARIABLES ####
+
+figlet -kc -w 150 -f big "WELCOME TO THE PLAYGROUND" | lolcat -p 16.6 -S 10 -a -s 300 -d 4
