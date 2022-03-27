@@ -1,7 +1,7 @@
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the start of this file.
-[ -s ~/.fig/shell/pre.sh ] && source ~/.fig/shell/pre.sh
-#### END FIG ENV VARIABLES ####
+# Fig pre block. Keep at the top of this file.
+export PATH="${PATH}:${HOME}/.local/bin"
+eval "$(fig init zsh pre)"
+
 # PROFILERS
 # zmodload zsh/zprof
 timezsh() {
@@ -16,6 +16,7 @@ NC="\033[0m" # NO COLOR
 
 # PATHS 
 ########################################
+export CELLAR="/usr/local/Cellar"
 export ZSH="$HOME/.oh-my-zsh"
 export DENO_INSTALL="$HOME/.local"
 export DENO_PATH="$DENO_INSTALL/bin"
@@ -29,18 +30,20 @@ export ANDROID_TOOLS="$ANDROID_HOME/tools"
 export ANDROID_BIN="$ANDROID_HOME/tools/bin"
 export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
 export RBENV_PATH="$HOME/.rbenv/bin"
-export CMAKE_PATH="/Applications/CMake.app/Contents/bin"
+export PYTHON_SITE_PACKAGES="$CELLAR/python@3.9/3.9.10/bin/python3.9"
+
+# exclusively for fastlane
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # FLAGS
 #######################################
-export HOMEBREW_NO_ANALYTICS=1
 # for lukechilds/zsh-nvm
 # export NVM_LAZY_LOAD=true
 
 # ANTIGEN
 #######################################
-# source /usr/local/share/antigen/antigen.zsh
-source $HOME/antigen.zsh
+source /usr/local/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 # PLUGINS
@@ -53,6 +56,7 @@ antigen bundle colored-man-pages
 antigen bundle rbenv
 antigen bundle laggardkernel/zsh-thefuck
 antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
 
 # THEME ENGINE
 ########################################
@@ -68,6 +72,7 @@ alias mas='mirror-android-screen'
 alias ras='record-android-screen'
 alias eg='c ~/.gitconfig'
 alias ez='c ~/.zshrc'
+alias exz='exec zsh'
 alias sz='source ~/.zshrc'
 alias mage='php bin/magento'
 alias print-path='print -l $path'
@@ -80,6 +85,15 @@ alias gstash='git stash'
 alias gd='git diff'
 alias gl='git lg --oneline'
 alias gco='git co'
+alias gbr='git br'
+alias gcz='git cz'
+alias sf='spotify'
+alias sfp='spotify play'
+alias sfps='spotify pause'
+alias sfpr='spotify prev'
+alias sfn='spotify next'
+alias sft='spotify toggle'
+
 
 
 # CUSTOM FUNCTIONS
@@ -159,12 +173,13 @@ xcswitch() {
     echo "Switched to $NEXT"
 }
 
-export PATH="/usr/local/sbin:$IDEA_PATH:$RBENV_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$NVM_DIR:$CMAKE_PATH:$PATH"
+export PATH="/usr/local/sbin:$PYTHON_SITE_PACKAGES:$IDEA_PATH:$RBENV_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$NVM_DIR:$PATH"
 antigen apply
 
-#### FIG ENV VARIABLES ####
-# Please make sure this block is at the end of this file.
-[ -s ~/.fig/fig.sh ] && source ~/.fig/fig.sh
-#### END FIG ENV VARIABLES ####
 
-figlet -kc -w 150 -f big "WELCOME TO THE PLAYGROUND" | lolcat -p 16.6 -S 10 -a -s 300 -d 4
+
+# figlet -kc -w 150 -f big "WELCOME TO THE PLAYGROUND" | lolcat -p 16.6 -S 10 -a -s 300 -d 4
+
+# Fig post block. Keep at the bottom of this file.
+eval "$(fig init zsh post)"
+
