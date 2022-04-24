@@ -1,6 +1,6 @@
 # Fig pre block. Keep at the top of this file.
 export PATH="${PATH}:${HOME}/.local/bin"
-eval "$(fig init zsh pre)"
+# eval "$(fig init zsh pre)"
 
 # PROFILERS
 # zmodload zsh/zprof
@@ -17,11 +17,12 @@ NC="\033[0m" # NO COLOR
 # PATHS 
 ########################################
 export CELLAR="/usr/local/Cellar"
+export HOMEBREW_M1_PACKAGES="/opt/homebrew/bin"
 export ZSH="$HOME/.oh-my-zsh"
 export DENO_INSTALL="$HOME/.local"
 export DENO_PATH="$DENO_INSTALL/bin"
 export MAMP_PHP73="/Applications/MAMP/bin/php/php7.3.24/bin"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.0.12.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.0.13.jdk/Contents/Home"
 export M2_HOME="/opt/apache-maven-3.6.3/bin"
 export IDEA_PATH="/opt/idea/bin"
 export ANDROID_HOME="$HOME/Library/Android/sdk"
@@ -43,7 +44,7 @@ export LANG=en_US.UTF-8
 
 # ANTIGEN
 #######################################
-source /usr/local/share/antigen/antigen.zsh
+source $HOME/.antigen.zsh
 antigen use oh-my-zsh
 
 # PLUGINS
@@ -54,6 +55,7 @@ antigen bundle z
 antigen bundle common-aliases
 antigen bundle colored-man-pages
 antigen bundle rbenv
+antigen bundle ssh-agent
 antigen bundle laggardkernel/zsh-thefuck
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-autosuggestions
@@ -173,7 +175,7 @@ xcswitch() {
     echo "Switched to $NEXT"
 }
 
-export PATH="/usr/local/sbin:$PYTHON_SITE_PACKAGES:$IDEA_PATH:$RBENV_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$NVM_DIR:$PATH"
+export PATH="/usr/local/sbin:$HOMEBREW_M1_PACKAGES:$PYTHON_SITE_PACKAGES:$IDEA_PATH:$RBENV_PATH:$M2_HOME:$JAVA_HOME:$DENO_PATH:$ANDROID_HOME:$ANDROID_EMULATOR:$ANDROID_TOOLS:$ANDROID_BIN:$ANDROID_PLATFORM_TOOLS:$MAMP_PHP73:$NVM_DIR:$PATH"
 antigen apply
 
 
@@ -181,5 +183,5 @@ antigen apply
 # figlet -kc -w 150 -f big "WELCOME TO THE PLAYGROUND" | lolcat -p 16.6 -S 10 -a -s 300 -d 4
 
 # Fig post block. Keep at the bottom of this file.
-eval "$(fig init zsh post)"
+# eval "$(fig init zsh post)"
 
