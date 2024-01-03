@@ -4,3 +4,6 @@
 [submodule "zsh/plugins/zsh-ssh-completion"]
 	path = zsh/plugins/zsh-ssh-completion
 	url = git@github.com:sunlei/zsh-ssh.git
+[submodule "zsh/plugins/zsh-z"]
+	path = zsh/plugins/zsh-z
+	url = git@github.com:agkozak/zsh-z.git
