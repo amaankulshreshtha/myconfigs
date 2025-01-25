@@ -1,4 +1,3 @@
-
 # Git
 git_stash_apply() {
   git stash list --grep="$1" --format="%gd" | xargs -I{} git stash apply {}
@@ -12,9 +11,13 @@ get_stash_name() {
   gstshl | awk -F ': ' '{print $3}'
 }
 
+git_remove_all_changes() {
+  git reset --hard HEAD && git clean -fd
+}
+
 # Dev
 mirror_android_screen() {
-  scrcpy -m 1024
+  scrcpy --no-audio
 }
 
 record_android_screen() {
@@ -22,14 +25,14 @@ record_android_screen() {
 }
 
 nvmi() {
-	nvm install "$1" --reinstall-packages-from=node --latest-npm
+  nvm install "$1" --reinstall-packages-from=node --latest-npm
 }
 
 # Ruby
 check_rbenv_update() {
   RBENV_GIT="$HOME/.rbenv/.git"
   OUT="$(git --git-dir=$RBENV_GIT diff master origin/master)"
-  
+
   if [ -n "$OUT" ]; then
     git --git-dir=$RBENV_GIT pull
   fi
@@ -40,21 +43,25 @@ android_device_serial() {
   adb devices | grep 5555 | awk '{print $1}'
 }
 
-
 # Utils
-colormap() {
-  for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
-}
-
 ytdl() {
   youtube-dl -x --audio-format 'mp3' --embed-thumbnail "$1"
 }
 
-
 # System
 mkcd() {
   mkdir -p -- "$1" &&
-  cd -P -- "$1"
+    cd -P -- "$1"
+}
+
+brew_log() {
+  if [[ $1 == "install" ]]; then
+    brew "$@" && echo "$2" >>$INSTALL_LOG_PATH
+  elif [[ $1 == "uninstall" ]]; then
+    brew "$@" && sed -i '' "/$2/d" $INSTALL_LOG_PATH
+  else
+    brew "$@"
+  fi
 }
 
 restart_sound() {
@@ -62,7 +69,7 @@ restart_sound() {
 }
 
 prettify_path() {
-  tr ':' '\n' <<< "$PATH"
+  tr ':' '\n' <<<"$PATH"
 }
 
 show_all_folders() {
@@ -95,9 +102,23 @@ ssh_add() {
   ssh-add ~/.ssh/"$1"
 }
 
-
 time_zsh() {
   time zsh -i -c exit
+}
+
+rename() {
+  if [ "$#" -ne 2 ]; then
+    return 1
+  fi
+
+  old_name="$1"
+  dir_path=$(dirname "$old_name")
+
+  new_name="$2"
+  full_new_name="$dir_path/$new_name"
+
+  # Rename the file/directory
+  mv "$old_name" "$full_new_name"
 }
 
 # switch between release and beta xcodes

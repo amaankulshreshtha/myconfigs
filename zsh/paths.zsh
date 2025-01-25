@@ -1,4 +1,4 @@
-# PATHS 
+# PATHS
 ########################################
 
 # Osx
@@ -8,9 +8,14 @@ export HOMEBREW_M1_BIN="/opt/homebrew/bin"
 export HOMEBREW_M1_LIB="/opt/homebrew/lib"
 export HOME_BIN="${HOME}/.local/bin"
 export CELLAR="/usr/local/Cellar"
+export INSTALL_LOG_PATH="$HOME/.config/homebrew/installs.txt"
+export DOWNLOADS="$HOME/Downloads"
+export DESKTOP="$HOME/Desktop"
+export DOCUMENTS="$HOME/Documents"
 
 # ZSH
-export ZSH="$HOME/.oh-my-zsh"
+export ZSH="$HOME"
+export ZSH_CONFIG="$HOME/.zsh"
 
 # Java
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
@@ -36,11 +41,12 @@ export DENO_PATH="$DENO_INSTALL/bin"
 export IDEA_PATH="/opt/idea/bin"
 export NI_CONFIG_FILE="$HOME/.nirc"
 
-
 # exclusively for fastlane
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+# pnpm
+export PNPM_HOME="/Users/amaan.kulshreshtha/Library/pnpm"
 
 export PATH="\
 $USER_LOCAL_BIN:\
@@ -48,6 +54,9 @@ $HOME_BIN:\
 $USER_LOCAL_SBIN:\
 $HOMEBREW_M1_BIN:\
 $HOMEBREW_M1_LIB:\
+$DOWNLOADS:\
+$DESKTOP:\
+$DOCUMENTS:\
 $ANDROID_HOME:\
 $ANDROID_EMULATOR:\
 $ANDROID_TOOLS:\
@@ -60,4 +69,5 @@ $JAVA_HOME:\
 $DENO_PATH:\
 $IDEA_PATH:\
 $NI_CONFIG_FILE:\
+$PNPM_HOME:\
 $PATH"
