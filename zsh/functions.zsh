@@ -54,6 +54,29 @@ mkcd() {
     cd -P -- "$1"
 }
 
+zipproject() {
+  if [ $# -lt 2 ]; then
+    echo "Usage: zipproject <source_dir> <output_zip_name>"
+    return 1
+  fi
+
+  source_dir=$1
+  output_zip=$2
+
+  # Convert to absolute paths
+  source_dir=$(cd "$source_dir" 2>/dev/null && pwd || echo "$source_dir")
+
+  if [ ! -d "$source_dir" ]; then
+    echo "Error: Source directory '$source_dir' not found"
+    return 1
+  fi
+
+  # Create archive using git
+  (cd "$source_dir" && git archive -o "$output_zip" HEAD)
+
+  echo "Created zip archive at $output_zip"
+}
+
 brew_log() {
   if [[ $1 == "install" ]]; then
     brew "$@" && echo "$2" >>$INSTALL_LOG_PATH

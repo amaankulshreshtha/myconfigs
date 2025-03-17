@@ -1,5 +1,9 @@
 # Dev
-alias c='code'
+alias c='cursor'
+
+# Java
+alias j11='export JAVA_HOME=$JAVA_11_HOME && java -version'
+alias j17='export JAVA_HOME=$JAVA_17_HOME && java -version'
 
 # Android
 alias mas='mirror_android_screen'
@@ -61,15 +65,32 @@ alias yd='yarn run dev'
 alias yx='yarn dlx'
 alias yu='yarn remove'
 
+# Bun
+alias bi='bun i'
+alias bid='bun i -D'
+alias bs='bun start'
+alias bt='bun test'
+alias br='bun run'
+alias bx='bun dlx'
+alias bu='bun remove'
+alias bl='bun lint'
+alias bra='bun run android'
+alias brb='bun run build'
+alias brc='bun run clean'
+alias brd='bun run dev'
+alias brdp='bun run deploy'
+alias bri='bun run ios'
+alias brs='bun run serve'
+
 # Python
-alias py='python3'
+alias p3='python3'
 alias pip='pip3'
 
 # Shell
 alias oz='c $ZSH_CONFIG'
-alias ez='c ~/.zshrc'
+alias ez='c $ZDOTDIR/.zshrc'
 alias exz='exec zsh'
-alias sz='source ~/.zshrc'
+alias sz='source $ZDOTDIR/.zshrc'
 
 # Git
 alias ga='git add'
@@ -79,7 +100,7 @@ alias gpl='git pull'
 alias gpsu='git push -u origin $(gccb | pbpaste)'
 alias gps='git push'
 alias gst='git status'
-alias gf='git fetch --depth=1'
+alias gf='git fetch'
 alias gd='git diff'
 alias gl='git lg'
 alias glo='git log --oneline'
@@ -116,6 +137,9 @@ alias odt='open $HOME/Desktop'
 alias odc='open $HOME/Documents'
 alias oss='open $HOME/Desktop/All\ Items/Screenshots'
 alias rn='rename'
+
+# Zip Project
+alias zp='zipproject'
 
 # React Native
 alias rdo='adb shell input keyevent 82'

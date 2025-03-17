@@ -14,18 +14,19 @@ export DESKTOP="$HOME/Desktop"
 export DOCUMENTS="$HOME/Documents"
 
 # ZSH
-export ZSH="$HOME"
-export ZSH_CONFIG="$HOME/.zsh"
+export ZSH_CONFIG="$XDG_CONFIG_HOME/zsh"
 
 # Java
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home"
+export JAVA_11_HOME=/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home
+export JAVA_17_HOME=/Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
+
+export JAVA_HOME=$JAVA_17_HOME
 
 # Android
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export ANDROID_EMULATOR="$ANDROID_HOME/emulator"
-export ANDROID_TOOLS="$ANDROID_HOME/cmdline-tools/latest"
-export ANDROID_BIN="$ANDROID_TOOLS/bin"
-export ANDROID_PLATFORM_TOOLS="$ANDROID_HOME/platform-tools"
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+export ANDROID_CMDLINE_TOOLS=$ANDROID_HOME/cmdline-tools/latest/bin
+export ANDROID_PLATFORM_TOOLS=$ANDROID_HOME/platform-tools
 
 # Ruby
 export RBENV_PATH="$HOME/.rbenv/bin"
@@ -33,7 +34,7 @@ export RBENV_PATH="$HOME/.rbenv/bin"
 # JS/TS
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
-export NVM_DIR="$HOME/.nvm"
+export FNM_PATH="$XDG_DATA_HOME/fnm"
 export DENO_INSTALL="$HOME/.local"
 export DENO_PATH="$DENO_INSTALL/bin"
 
@@ -57,15 +58,12 @@ $HOMEBREW_M1_LIB:\
 $DOWNLOADS:\
 $DESKTOP:\
 $DOCUMENTS:\
-$ANDROID_HOME:\
-$ANDROID_EMULATOR:\
-$ANDROID_TOOLS:\
-$ANDROID_BIN:\
+$JAVA_HOME:\
+$ANDROID_CMDLINE_TOOLS:\
 $ANDROID_PLATFORM_TOOLS:\
 $RBENV_PATH:\
 $BUN_INSTALL:\
-$NVM_DIR:\
-$JAVA_HOME:\
+$FNM_PATH:\
 $DENO_PATH:\
 $IDEA_PATH:\
 $NI_CONFIG_FILE:\
