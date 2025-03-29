@@ -6,7 +6,7 @@
 # # zmodload zsh/zprof
 
 # Source all zsh config files
-for config_file in $ZDOTDIR/{paths,aliases,functions,runtimes/{bun,fnm},plugins}.zsh; do
+for config_file in $ZDOTDIR/{paths,aliases,functions,runtimes/{fnm},plugins}.zsh; do
   [[ -f $config_file ]] && source $config_file
 done
 
